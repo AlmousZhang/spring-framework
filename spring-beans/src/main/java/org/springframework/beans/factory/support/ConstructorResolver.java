@@ -459,24 +459,6 @@ class ConstructorResolver {
 			// 获取工厂方法的类全名称
 			factoryClass = ClassUtils.getUserClass(factoryClass);
 			// 获取所有待定方法
-			List<Method> candidateList = null;
-			if (mbd.isFactoryMethodUnique) {
-				if (factoryMethodToUse == null) {
-					factoryMethodToUse = mbd.getResolvedFactoryMethod();
-				}
-				if (factoryMethodToUse != null) {
-					candidateList = Collections.singletonList(factoryMethodToUse);
-				}
-			}
-			if (candidateList == null) {
-				candidateList = new ArrayList<>();
-				Method[] rawCandidates = getCandidateMethods(factoryClass, mbd);
-				for (Method candidate : rawCandidates) {
-					// 如果有static 且为工厂方法，则添加到 candidateSet 中
-					if (Modifier.isStatic(candidate.getModifiers()) == isStatic && mbd.isFactoryMethod(candidate)) {
-						candidateList.add(candidate);
-					}
-
 			Method[] rawCandidates = getCandidateMethods(factoryClass, mbd);
 			List<Method> candidateList = new ArrayList<>();
 			for (Method candidate : rawCandidates) {
@@ -668,7 +650,6 @@ class ConstructorResolver {
 			}
 		}
 		// 创建 Bean 对象，并设置到 bw 中
-
 		Assert.state(argsToUse != null, "Unresolved factory method arguments");
 		bw.setBeanInstance(instantiate(beanName, mbd, factoryBean, factoryMethodToUse, argsToUse));
 		return bw;

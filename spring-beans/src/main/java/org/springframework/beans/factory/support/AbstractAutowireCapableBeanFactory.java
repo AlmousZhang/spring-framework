@@ -1373,7 +1373,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 		// to support styles of field injection.
 		boolean continueWithPropertyPopulation = true;
 		if (!mbd.isSynthetic()	// bean 不是"合成"的，即未由应用程序本身定义
-				&& hasInstantiationAwareBeanPostProcessors()) {{ // 是否持有 InstantiationAwareBeanPostProcessor
+				&& hasInstantiationAwareBeanPostProcessors()) { // 是否持有 InstantiationAwareBeanPostProcessor
 			// 迭代所有的 BeanPostProcessors
 			for (BeanPostProcessor bp : getBeanPostProcessors()) {
 				if (bp instanceof InstantiationAwareBeanPostProcessor) {// 如果为 InstantiationAwareBeanPostProcessor
@@ -1389,7 +1389,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 				}
 			}
 		}
-			// 如果后续处理器发出停止填充命令，则终止后续操作
+		// 如果后续处理器发出停止填充命令，则终止后续操作
 		if (!continueWithPropertyPopulation) {
 			return;
 		}
