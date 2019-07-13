@@ -72,6 +72,8 @@ public class StandardEnvironment extends AbstractEnvironment {
 	 * @see AbstractEnvironment#customizePropertySources(MutablePropertySources)
 	 * @see #getSystemProperties()
 	 * @see #getSystemEnvironment()
+	 *
+	 * 配置了两个默认属性源 系统属性，系统环境变量。
 	 */
 	@Override
 	protected void customizePropertySources(MutablePropertySources propertySources) {

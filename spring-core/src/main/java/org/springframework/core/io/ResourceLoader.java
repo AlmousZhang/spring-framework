@@ -38,6 +38,7 @@ import org.springframework.util.ResourceUtils;
  * @see org.springframework.core.io.support.ResourcePatternResolver
  * @see org.springframework.context.ApplicationContext
  * @see org.springframework.context.ResourceLoaderAware
+ * 源的加载则由 ResourceLoader 来统一定义
  */
 public interface ResourceLoader {
 

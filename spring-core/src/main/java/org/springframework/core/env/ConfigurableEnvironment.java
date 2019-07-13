@@ -19,6 +19,7 @@ package org.springframework.core.env;
 import java.util.Map;
 
 /**
+ *
  * Configuration interface to be implemented by most if not all {@link Environment} types.
  * Provides facilities for setting active and default profiles and manipulating underlying
  * property sources. Allows clients to set and validate required properties, customize the
@@ -68,6 +69,7 @@ import java.util.Map;
  * @since 3.1
  * @see StandardEnvironment
  * @see org.springframework.context.ConfigurableApplicationContext#getEnvironment
+ * 属性解析和profile相关操作
  */
 public interface ConfigurableEnvironment extends Environment, ConfigurablePropertyResolver {
 

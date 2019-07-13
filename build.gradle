@@ -35,7 +35,7 @@ ext {
 	jackson2Version      = "2.9.9"
 	jettyVersion         = "9.4.19.v20190610"
 	junit5Version        = "5.3.2"
-	kotlinVersion        = "1.2.71"
+	kotlinVersion        = "1.2.0"
 	log4jVersion         = "2.11.2"
 	nettyVersion         = "4.1.37.Final"
 	reactorVersion       = "Californium-SR9"
