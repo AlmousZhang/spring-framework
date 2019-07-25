@@ -66,8 +66,13 @@ public class BeanFactoryAdvisorRetrievalHelper {
 	 */
 	public List<Advisor> findAdvisorBeans() {
 		// Determine list of advisor bean names, if not cached already.
+		// cachedAdvisorBeanNames 是 advisor 名称的缓存
 		String[] advisorNames = this.cachedAdvisorBeanNames;
 		if (advisorNames == null) {
+			/*
+			 * 如果 cachedAdvisorBeanNames 为空，这里到容器中查找，
+			 * 并设置缓存，后续直接使用缓存即可
+			 */
 			// Do not initialize FactoryBeans here: We need to leave all regular beans
 			// uninitialized to let the auto-proxy creator apply to them!
 			// 从容器中查找 Advisor 类型 bean 的名称
