@@ -681,7 +681,7 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 		// 实现了 Aware 接口的 beans 在初始化的时候，这个 processor 负责回调，
 		// 这个我们很常用，如我们会为了获取 ApplicationContext 而 implement ApplicationContextAware
 		// 注意：它不仅仅回调 ApplicationContextAware，
-		//   还会负责回调 EnvironmentAware、ResourceLoaderAware 等，看下源码就清楚了
+		//   还会负责回调 EnvironmentAware、ResourceLoaderAware 等
 		beanFactory.addBeanPostProcessor(new ApplicationContextAwareProcessor(this));
 		// 下面几行的意思就是，如果某个 bean 依赖于以下几个接口的实现类，在自动装配的时候忽略它们，
 		// Spring 会通过其他方式来处理这些依赖。
@@ -912,7 +912,7 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 				beanFactory.isTypeMatch(CONVERSION_SERVICE_BEAN_NAME, ConversionService.class)) {
 			beanFactory.setConversionService(
 					beanFactory.getBean(CONVERSION_SERVICE_BEAN_NAME, ConversionService.class));
-		}
+		}AbstractAutowireCapableBeanFactory
 
 		// 如果之前没有注册 bean 后置处理器（例如PropertyPlaceholderConfigurer），则注册默认的解析器
 		// Register a default embedded value resolver if no bean post-processor
