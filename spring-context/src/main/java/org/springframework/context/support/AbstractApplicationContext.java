@@ -912,7 +912,7 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 				beanFactory.isTypeMatch(CONVERSION_SERVICE_BEAN_NAME, ConversionService.class)) {
 			beanFactory.setConversionService(
 					beanFactory.getBean(CONVERSION_SERVICE_BEAN_NAME, ConversionService.class));
-		}AbstractAutowireCapableBeanFactory
+		}
 
 		// 如果之前没有注册 bean 后置处理器（例如PropertyPlaceholderConfigurer），则注册默认的解析器
 		// Register a default embedded value resolver if no bean post-processor
