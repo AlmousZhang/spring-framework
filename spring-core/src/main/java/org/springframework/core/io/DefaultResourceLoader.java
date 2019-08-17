@@ -166,7 +166,7 @@ public class DefaultResourceLoader implements ResourceLoader {
 			}
 			catch (MalformedURLException ex) {
 				// 最后，返回 ClassPathContextResource 类型的资源
-				// No URL -> resolve as resource path.
+				// No URL -> resolve as resource path.ClassRelativeResourceLoader
 				return getResourceByPath(location);
 			}
 		}
