@@ -225,7 +225,7 @@ final class PostProcessorRegistrationDelegate {
 
 		// Separate between BeanPostProcessors that implement PriorityOrdered,
 		// Ordered, and the rest.
-		// PriorityOrdered 保证顺序
+		// 第二步，注册所有实现了 Ordered 的 BeanPostProcessor
 		List<BeanPostProcessor> priorityOrderedPostProcessors = new ArrayList<>();
 		// MergedBeanDefinitionPostProcessor
 		List<BeanPostProcessor> internalPostProcessors = new ArrayList<>();
@@ -287,7 +287,8 @@ final class PostProcessorRegistrationDelegate {
 		registerBeanPostProcessors(beanFactory, nonOrderedPostProcessors);
 
 		// Finally, re-register all internal BeanPostProcessors.
-		// 最后，注册所有的 MergedBeanDefinitionPostProcessor 类型的 BeanPostProcessor		sortPostProcessors(internalPostProcessors, beanFactory);
+		// 最后，注册所有的 MergedBeanDefinitionPostProcessor 类型的 BeanPostProcessor
+		sortPostProcessors(internalPostProcessors, beanFactory);
 		registerBeanPostProcessors(beanFactory, internalPostProcessors);
 
 		// Re-register post-processor for detecting inner beans as ApplicationListeners,
