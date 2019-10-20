@@ -38,7 +38,7 @@ import org.springframework.util.StringValueResolver;
  * {@link org.springframework.core.env.PropertySource} mechanisms also made available in Spring 3.1.
  *
  * <p>{@link PropertyPlaceholderConfigurer} is still appropriate for use when:
- * <ul>
+ * <ul>LifeCycleBean
  * <li>the {@code spring-context} module is not available (i.e., one is using Spring's
  * {@code BeanFactory} API as opposed to {@code ApplicationContext}).
  * <li>existing configuration makes use of the {@link #setSystemPropertiesMode(int) "systemPropertiesMode"}
