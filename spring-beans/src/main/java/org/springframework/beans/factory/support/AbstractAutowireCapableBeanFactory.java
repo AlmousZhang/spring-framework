@@ -1877,7 +1877,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 		else {
 			invokeAwareMethods(beanName, bean);
 		}
-		// <2> 后处理器，before
+		// <2> 后处理器，beforedoCreateBean
 		Object wrappedBean = bean;
 		if (mbd == null || !mbd.isSynthetic()) {
 			wrappedBean = applyBeanPostProcessorsBeforeInitialization(wrappedBean, beanName);

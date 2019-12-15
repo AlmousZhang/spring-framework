@@ -339,13 +339,23 @@ public abstract class AbstractAutoProxyCreator extends ProxyProcessorSupport
 		if (Boolean.FALSE.equals(this.advisedBeans.get(cacheKey))) {
 			return bean;
 		}
+		/*
+		 * 如果是基础设施类（Pointcut、Advice、Advisor 等接口的实现类），或是应该跳过的类，
+		 * 则不应该生成代理，此时直接返回 bean
+		 */
 		if (isInfrastructureClass(bean.getClass()) || shouldSkip(bean.getClass(), beanName)) {
+			// 将 <cacheKey, FALSE> 键值对放入缓存中，供上面的 if 分支使用
 			this.advisedBeans.put(cacheKey, Boolean.FALSE);
 			return bean;
 		}
 
+		// 为目标 bean 查找合适的通知器
 		// Create proxy if we have advice.
 		Object[] specificInterceptors = getAdvicesAndAdvisorsForBean(bean.getClass(), beanName, null);
+		/*
+		 * 若 specificInterceptors != null，即 specificInterceptors != DO_NOT_PROXY，
+		 * 则为 bean 生成代理对象，否则直接返回 bean
+		 */
 		if (specificInterceptors != DO_NOT_PROXY) {
 			this.advisedBeans.put(cacheKey, Boolean.TRUE);
 			Object proxy = createProxy(
