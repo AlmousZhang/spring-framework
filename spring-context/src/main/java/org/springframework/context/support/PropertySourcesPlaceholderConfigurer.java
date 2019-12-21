@@ -178,7 +178,8 @@ public class PropertySourcesPlaceholderConfigurer extends PlaceholderConfigurerS
 			}
 			return (resolved.equals(this.nullValue) ? null : resolved);
 		};
-
+		// 调用父类 PlaceholderConfigurerSupport 进行 properties 处理
+		// 遍历每一个 BeanDefinition，并将其交给 BeanDefinitionVisitor 修改内部的属性
 		doProcessProperties(beanFactoryToProcess, valueResolver);
 	}
 
