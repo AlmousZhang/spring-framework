@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:aop="http://www.springframework.org/schema/aop"
+	   xmlns:tx="http://www.springframework.org/schema/tx"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+http://www.springframework.org/schema/aop
+http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+
+	<!--<bean id="testAdvisor" class="org.springframework.myTest.aop.TestAdvisor"></bean>-->
+	<!--<bean id="testTarget" class="org.springframework.myTest.aop.TestTarget"></bean>-->
+	<!--<bean id="testAOP" class="org.springframework.aop.framework.ProxyFactoryBean">-->
+	<!--<property name="targetName">-->
+	<!--<value>testTarget</value>-->
+	<!--</property>-->
+	<!--<property name="interceptorNames">-->
+	<!--<list>-->
+	<!--<value>testAdvisor</value>-->
+	<!--</list>-->
+	<!--</property>-->
+	<!--</bean>-->
+
+	<bean id="daoImpl" class="org.springframework.myTest.aop.DaoImpl"/>
+	<bean id="timeHandler" class="org.springframework.myTest.aop.TimeHandler"/>
+
+	<aop:config proxy-target-class="true">
+		<aop:aspect id="time" ref="timeHandler">
+			<aop:pointcut id="addAllMethod" expression="execution(* org.xrq.action.aop.Dao.*(..))"/>
+			<aop:before method="printTime" pointcut-ref="addAllMethod"/>
+			<aop:after method="printTime" pointcut-ref="addAllMethod"/>
+		</aop:aspect>
+	</aop:config>
+
+</beans>
+
