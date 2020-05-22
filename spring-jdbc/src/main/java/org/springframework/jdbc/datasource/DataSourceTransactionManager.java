@@ -291,7 +291,7 @@ public class DataSourceTransactionManager extends AbstractPlatformTransactionMan
 
 			int timeout = determineTimeout(definition);
 			if (timeout != TransactionDefinition.TIMEOUT_DEFAULT) {
-				txObject.getConnectionHolder().setTimeoutInSeconds(timeout);
+				txObject.getConnectionHolder().setTimeoutInSeconds(timeout);//设置超时时间
 			}
 
 			// Bind the connection holder to the thread.
