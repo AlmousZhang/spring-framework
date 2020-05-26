@@ -83,6 +83,7 @@ public interface BeanDefinition extends AttributeAccessor, BeanMetadataElement {
 	// Modifiable attributes
 
 	/**
+	 *  设置父 Bean，这里涉及到 bean 继承，不是 java 继承
 	 * Set the name of the parent definition of this bean definition, if any.
 	 */
 	void setParentName(@Nullable String parentName);
@@ -94,6 +95,7 @@ public interface BeanDefinition extends AttributeAccessor, BeanMetadataElement {
 	String getParentName();
 
 	/**
+	 *  设置 Bean 的类名称，将来是要通过反射来生成实例的
 	 * Specify the bean class name of this bean definition.
 	 * <p>The class name can be modified during bean factory post-processing,
 	 * typically replacing the original class name with a parsed variant of it.
@@ -167,6 +169,7 @@ public interface BeanDefinition extends AttributeAccessor, BeanMetadataElement {
 	void setAutowireCandidate(boolean autowireCandidate);
 
 	/**
+	 * // 该 Bean 是否可以注入到其他 Bean 中
 	 * Return whether this bean is a candidate for getting autowired into some other bean.
 	 */
 	boolean isAutowireCandidate();
